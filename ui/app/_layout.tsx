@@ -4,7 +4,7 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 export default function RootLayout() {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
         <Stack screenOptions={{ headerShown: false }}></Stack>
       </SafeAreaView>
     </SafeAreaProvider>
