@@ -1,40 +1,29 @@
-import { View, Text, TouchableOpacity } from "react-native";
-import React from "react";
-import { styles } from "@/styles/auth";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "@/constants/theme";
-import { Image } from "react-native";
+import { Image, View, Text, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
+import { styles } from "@/styles/auth";
 
 export default function Login() {
   const router = useRouter();
 
   const handleGoogleSignIn = () => {
     // implement actual auth here
-    router.push("/(tabs)");
-  };
-
+    router.push("/(tabs)/discover");
+  }
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "white"}}>
       {/* BRAND SECTION */}
       <View style={styles.brandSection}>
-        <View style={styles.logoContainer}>
-          <Ionicons name="heart" size={32} color={COLORS.primary}></Ionicons>
-        </View>
+        <Ionicons name="heart" size={32} color={COLORS.primary} />
         <Text style={styles.appName}>unisell</Text>
         <Text style={styles.tagline}>buy. sell. all in nus.</Text>
+        <Image
+      source={require("../../assets/images/marketplace.png") }
+      style={styles.illustration} resizeMode="cover" />
       </View>
 
       {/* ILLUSTRATION */}
-      <View style={styles.illustrationContainer}>
-        <Image
-          source={require("../../assets/images/marketplace.png")}
-          style={styles.illustration}
-          resizeMode="cover"
-        />
-      </View>
-
-      {/* LOGIN SECTION */}
       <View style={styles.loginSection}>
         <TouchableOpacity
           style={styles.googleButton}

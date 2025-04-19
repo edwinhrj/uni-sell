@@ -7,49 +7,49 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarShowLabel: false,
+        tabBarShowLabel: true,
         headerShown: false,
         tabBarActiveTintColor: COLORS.primary,
         tabBarInactiveTintColor: COLORS.grey,
         tabBarStyle: {
-          backgroundColor: "black",
+          backgroundColor: "white",
           borderTopWidth: 0,
           position: "absolute",
           elevation: 0,
-          height: 40,
+          height: 44,
           paddingBottom: 8,
         },
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="sell"
         options={{
           tabBarIcon: ({ size, color }) => (
+            <Ionicons name="add-circle" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="marketplace"
+        options={{
+          tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="bookmarks"
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="bookmark" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="create"
-        options={{
-          tabBarIcon: ({ size }) => (
-            <Ionicons name="add-circle" size={size} color={COLORS.primary} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="notifications"
+        name="discover"
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="heart" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="messages"
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="chatbubbles" size={size} color={color} />
           ),
         }}
       />
