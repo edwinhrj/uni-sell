@@ -1,16 +1,32 @@
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "@/constants/theme";
 import { Image, View, Text, TouchableOpacity } from "react-native";
-import { useRouter } from "expo-router";
+import { useRouter, useSegments } from "expo-router";
 import { styles } from "@/styles/auth";
+import { useAuth, useSSO } from "@clerk/clerk-expo";
 
 export default function Login() {
+  
   const router = useRouter();
+  const {startSSOFlow} = useSSO()
 
-  const handleGoogleSignIn = () => {
+  // handle google sign in, with clerk's startSSOFlow function.
+  // after sign in, the user is redirected to the home/discover 
+  // page.
+  const handleGoogleSignIn = async () => {
+    try {
+      const {createdSessionId, setActive} = await startSSOFlow({strategy: 'oauth_google'})
+      if (setActive && createdSessionId) {
+        setActive({session: createdSessionId})
+        router.replace("/(home)/discover");
+      }
+    } catch (error) {
+      console.error("OAuth error:", error)
+    }
     // implement actual auth here
-    router.push("/(tabs)/discover");
+    router.push("/(home)/discover");
   }
+
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "white"}}>
       {/* BRAND SECTION */}
