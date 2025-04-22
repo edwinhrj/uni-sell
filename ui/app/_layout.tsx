@@ -5,7 +5,7 @@ import { tokenCache } from '@clerk/clerk-expo/token-cache'
 import { ClerkLoaded } from "@clerk/clerk-expo";
 import InitialLayout from "./(auth)/InitialLayout";
 
-const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!
+const publishableKey = "pk_test_b2JsaWdpbmctYnVsbGRvZy03NC5jbGVyay5hY2NvdW50cy5kZXYk"
 if (!publishableKey) {
   throw new Error(
     'Missing Publishable Key. Please set EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY in your .env',
@@ -27,7 +27,7 @@ export default function RootLayout() {
               backgroundColor: "white"
             }}
           >
-            {/* additinal logic for double checking and routing a user to either 
+            {/* additional logic for double checking and routing a user to either 
             login or home page is in InitialLayout.tsx */}
             <InitialLayout />
           </SafeAreaView>
