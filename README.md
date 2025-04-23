@@ -1,9 +1,8 @@
 # uni-sell
 
-Dev mode:
+create new react native project:
 npm i -g expo-cli
-
-# npx create-expo-app --template
+npx create-expo-app --template
 
 cd ui
 npx expo

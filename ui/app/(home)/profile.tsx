@@ -4,7 +4,7 @@ import { COLORS } from "@/constants/theme";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "@/styles/auth";
 import { useRouter } from "expo-router";
-import { useClerk } from "@clerk/clerk-expo"; 
+import { useClerk } from "@clerk/clerk-expo";
 
 export default function Profile() {
   const router = useRouter();
@@ -13,14 +13,21 @@ export default function Profile() {
   const handleGoogleSignOut = async () => {
     try {
       await signOut(); // Perform sign-out action
-      router.push("/(auth)/login"); // Redirect to login page
+      router.replace("/(auth)/login"); // Redirect to login page
     } catch (error) {
       console.error("Error signing out:", error); // Handle any errors during sign-out
     }
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "white" }}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white",
+      }}
+    >
       <Text>Profile screen</Text>
       <TouchableOpacity
         style={styles.googleButton}
@@ -35,4 +42,3 @@ export default function Profile() {
     </View>
   );
 }
-
