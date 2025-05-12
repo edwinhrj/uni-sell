@@ -1,4 +1,4 @@
-# uni-sell
+# unisell
 
 Side project of a mobile "NUS Marketplace" Application for NUS students to list, sell, and get recommended items to purchase.
 
